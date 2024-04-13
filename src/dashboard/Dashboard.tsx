@@ -4,9 +4,17 @@ import StarLogo from '../assets/starw.png'
 import { FaThLarge } from "react-icons/fa";
 import { AiOutlineBell } from "react-icons/ai";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { MdOutlineArrowBackIos } from "react-icons/md";
 import Avatar from "../assets/avat.png"
+import Table from '../components/Table';
+import { useState } from 'react';
+import { cardItems, sideItems } from './data';
+import Card from '../components/Card';
+
 
 const Dashboard = () => {
+    const [active, setActive] = useState("")
+   
   return (
     <Layout>
         {/* Sidebar */}
@@ -14,32 +22,43 @@ const Dashboard = () => {
             <div className="w-[120px] h-[50px] mb-8">
                 <img src={StarLogo} alt='logo'  className="w-full h-full object-cover"/>
             </div>
-            <div className="flex items-center w-[240px] h-[48px] rounded bg-[#0A74DC] mb-16 space-x-5 pl-5">
+           
+
+            <div className="flex flex-col space-y-5">
+                <div 
+                    className={`flex items-center w-[240px] h-[48px] rounded mb-10 space-x-5 pl-5 ${active === "" && 'bg-[#0A74DC]'}`} 
+                    onClick={()=>setActive("")}
+                >
                     <span className="inline-flex text-white text-base justify-center items-center font-semibold">
                         <FaThLarge />
                     </span>
                     <span className="inline-block text-base font-semibold text-white">Overview</span>
-            </div>
-
-            <div className="flex flex-col space-y-5">
-                <div className="flex items-center w-[232px] h-[48px] space-x-4 pl-2">
-                    <span className="inline-block w-[17px] h-[16px] bg-[#A9C1FF] rounded-[5px]"/>
-                    <span className="inline-block text-base font-semibold text-white">Starships</span>
                 </div>
-                <div className="flex items-center w-[232px] h-[48px] space-x-4 pl-2">
-                    <span className="inline-block w-[17px] h-[16px] bg-[#A9C1FF] rounded-[5px]"/>
-                    <span className="inline-block text-base font-semibold text-white">Starships</span>
-                </div>
-                <div className="flex items-center w-[232px] h-[48px] space-x-4 pl-2">
-                    <span className="inline-block w-[17px] h-[16px] bg-[#A9C1FF] rounded-[5px]"/>
-                    <span className="inline-block text-base font-semibold text-white">Starships</span>
-                </div>
+                {
+                    sideItems.map((item)=>(
+                        <div 
+                            className={`flex items-center w-[240px] h-[48px] rounded  space-x-5 pl-5 cursor-pointer ${active === item.name && 'bg-[#0A74DC]'}`} 
+                            key={item.name} 
+                            onClick={()=>setActive(item.name)}
+                        >
+                            <span className={`inline-block w-[17px] h-[16px] rounded-[5px] ${item.col}`}/>
+                            <span className="inline-flex text-white text-base justify-center items-center font-semibold">{item.name}</span>
+                        </div>
+                    ))
+                }
+               
             </div>
            
         </div>
         {/* Main components */}
 
-        <div className="flex flex-col pt-10 pl-10">
+        <div className="flex flex-col pt-5 pl-10">
+            <div className="flex items-center space-x-1 cursor-pointer">
+                <span className="inline-flex justify-center items-center text-base font-normal text-[#A4A7B7]">
+                    <MdOutlineArrowBackIos/>
+                </span>
+                <span className="inline-flex justify-center items-center text-base font-normal text-[#A4A7B7]">Back</span>
+            </div>
             <header className="flex justify-end mb-10">
                 <nav className="flex justify-end items-center divide-x-2">
                     <span className="text-[18px] pr-5">
@@ -58,50 +77,14 @@ const Dashboard = () => {
             </header>
             {/* Cards Items */}
             <div className="flex items-center space-x-8">
-                <div className="flex flex-col justify-between w-[208px] h-[130px] shadow-lg rounded-[10px] bg-white px-3 py-3">
-                    <div className="flex justify-between items-center">
-                        <span className="inline-block text-base font-bold text-[#434854]">Films</span>
-                        <span className="inline-block w-[27px] h-[26px] bg-[#A9C1FF] rounded-[5px]"/>
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                        <span className="inline-block text-base font-bold text-[#434854]">200</span>
-                        <span className="text-[9px] text-[#00992B] font-normal">20 More than yesterday</span>
-                    </div>
-                </div>
-                <div className="flex flex-col justify-between w-[208px] h-[130px] shadow-lg rounded-[10px] bg-white px-3 py-3">
-                    <div className="flex justify-between items-center">
-                        <span className="inline-block text-base font-bold text-[#434854]">Films</span>
-                        <span className="inline-block w-[27px] h-[26px] bg-[#A9C1FF] rounded-[5px]"/>
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                        <span className="inline-block text-base font-bold text-[#434854]">200</span>
-                        <span className="text-[9px] text-[#00992B] font-normal">20 More than yesterday</span>
-                    </div>
-                </div>
-                <div className="flex flex-col justify-between w-[208px] h-[130px] shadow-lg rounded-[10px] bg-white px-3 py-3">
-                    <div className="flex justify-between items-center">
-                        <span className="inline-block text-base font-bold text-[#434854]">Films</span>
-                        <span className="inline-block w-[27px] h-[26px] bg-[#A9C1FF] rounded-[5px]"/>
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                        <span className="inline-block text-base font-bold text-[#434854]">200</span>
-                        <span className="text-[9px] text-[#00992B] font-normal">20 More than yesterday</span>
-                    </div>
-                </div>
-                <div className="flex flex-col justify-between w-[208px] h-[130px] shadow-lg rounded-[10px] bg-white px-3 py-3">
-                    <div className="flex justify-between items-center">
-                        <span className="inline-block text-base font-bold text-[#434854]">Films</span>
-                        <span className="inline-block w-[27px] h-[26px] bg-[#A9C1FF] rounded-[5px]"/>
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                        <span className="inline-block text-base font-bold text-[#434854]">200</span>
-                        <span className="text-[9px] text-[#00992B] font-normal">20 More than yesterday</span>
-                    </div>
-                </div>
+                {
+                    cardItems.map(card=> <Card txt={card.name} bg={card.col}/>)
+                }
             </div>
             {/* Table component Items */}
-            <div>
-
+            <div className="flex flex-col space-y-3 pt-10">
+                <span className="inline-block text-base text-[#A4A7B7] font-norma">Film</span>
+                <Table/>
             </div>
         </div>
     </Layout>

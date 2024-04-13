@@ -1,4 +1,5 @@
 //import { useState } from 'react'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import Dashboard from "./dashboard/Dashboard"
 import Login from "./login/Login"
@@ -8,10 +9,12 @@ function App() {
 
   return (
     <>
-     <div className="">
-        {/* <Login/> */}
-        <Dashboard/>
-     </div>
+    <Router>
+      <Routes>
+        <Route path='/' index element={<Login/>}/>
+        <Route path='dashboard' index element={<Dashboard/>}/>
+      </Routes>
+     </Router>
     </>
   )
 }
