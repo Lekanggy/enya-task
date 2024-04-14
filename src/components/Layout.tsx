@@ -5,7 +5,7 @@ type LayOutProp = {
 }
 const Layout = ({children}:LayOutProp) => {
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-full">
         {children}
     </div>
   )

@@ -1,22 +1,20 @@
-import { useNavigate } from "react-router-dom"
 import useFetech from "../hooks/useFetech"
-import { generateMatch } from "../utilis/generateMatch"
 import useHandleRoutes from "../hooks/useHandleRoutes"
+import { convertTimeToDate } from "../utilis/dateFormat"
 
 
 const columns = [
-    {label: "FilmTitle", key: "12"},
-    {label: "Release Date", key: "13"},
-    {label: "Director", key: "152"},
-    {label: "Producer", key: "1662"},
-    {label: "Episode ID", key: "1265"},
-    {label: "Character", key: "1672"},
+    {label: "Name", key: "12"},
+    {label: "Classification", key: "13"},
+    {label: "Eye color", key: "152"},
+    {label: "Hair color", key: "1662"},
+    {label: "Height", key: "1265"},
+    {label: "Created", key: "1672"},
 ]
 
-const Table = () => {
-    const {response} = useFetech("https://swapi.dev/api/films")
+const SpeciesTable = () => {
+    const {response} = useFetech("https://swapi.dev/api/species")
     const {handleRoute} = useHandleRoutes()
-   
   return (
     <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
@@ -39,30 +37,32 @@ const Table = () => {
                         {
                             !response?.results && <div>Loading</div>
                         }
+                    
                         {
-                            response?.results?.map((item:{[k:string]:any})=>(
-                                <tr onClick={()=>handleRoute(item?.url)} key={item.title}>
+                            response?.results?.map((item:{[k:string]:any}, index:number)=>(
+                                <tr onClick={()=>handleRoute(index + 1)} key={index}>
                                     <td>
                                         <input type='checkbox' className="w-[14px] h-[14px]"/>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.title}
+                                    {item.name}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.release_date}
+                                    {item.classification}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.director}
+                                    {item.eye_colors}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.producer}
+                                    {item.hair_colors}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.episode_id}
+                                    {item.average_height}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.url}
+                                    {convertTimeToDate(item.created)}
                                     </td>
+                                    
                                 </tr>
                             ))
                         }
@@ -72,4 +72,4 @@ const Table = () => {
   )
 }
 
-export default Table
+export default SpeciesTable

@@ -1,22 +1,20 @@
-import { useNavigate } from "react-router-dom"
 import useFetech from "../hooks/useFetech"
-import { generateMatch } from "../utilis/generateMatch"
 import useHandleRoutes from "../hooks/useHandleRoutes"
+import { convertTimeToDate } from "../utilis/dateFormat"
 
 
 const columns = [
-    {label: "FilmTitle", key: "12"},
-    {label: "Release Date", key: "13"},
-    {label: "Director", key: "152"},
-    {label: "Producer", key: "1662"},
-    {label: "Episode ID", key: "1265"},
-    {label: "Character", key: "1672"},
+    {label: "Name", key: "12"},
+    {label: "Birth Year", key: "13"},
+    {label: "Gender", key: "152"},
+    {label: "Hair color", key: "1662"},
+    {label: "Height", key: "1265"},
+    {label: "Created", key: "1672"},
 ]
 
-const Table = () => {
-    const {response} = useFetech("https://swapi.dev/api/films")
+const PeopleTable = () => {
+    const {response} = useFetech("https://swapi.dev/api/people")
     const {handleRoute} = useHandleRoutes()
-   
   return (
     <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
@@ -39,30 +37,32 @@ const Table = () => {
                         {
                             !response?.results && <div>Loading</div>
                         }
+                        
                         {
-                            response?.results?.map((item:{[k:string]:any})=>(
-                                <tr onClick={()=>handleRoute(item?.url)} key={item.title}>
+                            response?.results?.map((item:{[k:string]:any}, index:number)=>(
+                                <tr onClick={()=>handleRoute(index + 1)} key={index}>
                                     <td>
                                         <input type='checkbox' className="w-[14px] h-[14px]"/>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.title}
+                                    {item.name}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.release_date}
+                                    {item.birth_year}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.director}
+                                    {item.gender}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.producer}
+                                    {item.hair_color}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.episode_id}
+                                    {item.height}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.url}
+                                    {convertTimeToDate(item.created)}
                                     </td>
+                                    
                                 </tr>
                             ))
                         }
@@ -72,4 +72,4 @@ const Table = () => {
   )
 }
 
-export default Table
+export default  PeopleTable

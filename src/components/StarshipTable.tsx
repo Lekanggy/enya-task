@@ -1,22 +1,19 @@
-import { useNavigate } from "react-router-dom"
 import useFetech from "../hooks/useFetech"
-import { generateMatch } from "../utilis/generateMatch"
 import useHandleRoutes from "../hooks/useHandleRoutes"
 
 
 const columns = [
-    {label: "FilmTitle", key: "12"},
-    {label: "Release Date", key: "13"},
-    {label: "Director", key: "152"},
-    {label: "Producer", key: "1662"},
-    {label: "Episode ID", key: "1265"},
+    {label: "Name", key: "12"},
+    {label: "Model", key: "13"},
+    {label: "Class", key: "152"},
+    {label: "Passenger", key: "1662"},
+    {label: "Length", key: "1265"},
     {label: "Character", key: "1672"},
 ]
 
-const Table = () => {
-    const {response} = useFetech("https://swapi.dev/api/films")
-    const {handleRoute} = useHandleRoutes()
-   
+const StarshipTable = () => {
+    const {response} = useFetech(" https://swapi.dev/api/starships")
+   const {handleRoute} = useHandleRoutes()
   return (
     <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
@@ -39,30 +36,32 @@ const Table = () => {
                         {
                             !response?.results && <div>Loading</div>
                         }
+
                         {
-                            response?.results?.map((item:{[k:string]:any})=>(
-                                <tr onClick={()=>handleRoute(item?.url)} key={item.title}>
+                            response?.results?.map((item:{[k:string]:any}, index:number)=>(
+                                <tr onClick={()=>handleRoute(index + 1)} key={index+1}>
                                     <td>
                                         <input type='checkbox' className="w-[14px] h-[14px]"/>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.title}
+                                    {item.name}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.release_date}
+                                    {item.model}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.director}
+                                    {item.starship_class}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.producer}
+                                    {item.passengers}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                    {item.episode_id}
+                                    {item.length}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                     {item.url}
                                     </td>
+                                    
                                 </tr>
                             ))
                         }
@@ -72,4 +71,4 @@ const Table = () => {
   )
 }
 
-export default Table
+export default StarshipTable
