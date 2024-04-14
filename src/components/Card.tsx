@@ -1,4 +1,3 @@
-import React from 'react'
 
 type Cards = {
   bg: string,
@@ -6,7 +5,7 @@ type Cards = {
 }
 const Card = ({bg, txt}:Cards) => {
   return (
-    <div className="flex flex-col justify-between w-[208px] h-[130px] shadow-lg rounded-[10px] bg-white px-3 py-3 cursor-pointer">
+    <div className="flex flex-col justify-between w-[208px] h-[130px] shadow-lg rounded-[10px] bg-white px-3 py-3">
       <div className="flex justify-between items-center">
           <span className="inline-block text-base font-bold text-[#434854]">{txt}</span>
           <span className={`inline-block w-[27px] h-[26px] rounded-[5px] ${bg}`}/>

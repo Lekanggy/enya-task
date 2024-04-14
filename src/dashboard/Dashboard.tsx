@@ -6,7 +6,6 @@ import { AiOutlineBell } from "react-icons/ai";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import Avatar from "../assets/avat.png"
-import Table from '../components/Table';
 import { useState } from 'react';
 import { cardItems, sideItems } from './data';
 import Card from '../components/Card';
@@ -72,32 +71,36 @@ const Dashboard = () => {
         </div>
         {/* Main components */}
 
-        <div className="flex flex-col pt-5 pl-10">
+        <div className="flex flex-col pt-5 pl-10 w-full">
             <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-1 cursor-pointer" onClick={()=>navigate(-1)}>
-                    <span className="inline-flex justify-center items-center text-base font-normal text-[#A4A7B7]">
-                        <MdOutlineArrowBackIos/>
-                    </span>
-                    <span className="inline-flex justify-center items-center text-base font-normal text-[#A4A7B7]">Back</span>
-                </div>
+                {
+                    item.length === 4 ? (
+                        <div className="flex items-center space-x-1 cursor-pointer" onClick={()=>navigate(-1)}>
+                            <span className="inline-flex justify-center items-center text-base font-normal text-[#A4A7B7]">
+                                <MdOutlineArrowBackIos/>
+                            </span>
+                            <span className="inline-flex justify-center items-center text-base font-normal text-[#A4A7B7]">Back</span>
+                        </div>
+                    ):<div className="flex items-center space-x-1 cursor-pointer"/>
+                }
+                
               
                 <nav className="flex items-center divide-x-2">
                     <span className="text-[18px] pr-5">
                         <AiOutlineBell/>
                     </span>
                     <div className="flex space-x-5 items-center pl-5">
-                    <img src={Avatar} alt='avatar' className="w-[30px] h-[30px] rounded-full object-cover"/>
-                    <span className="inline-block text-[15px] font-normal text-[#303B54]">John Doe</span>
+                        <img src={Avatar} alt='avatar' className="w-[30px] h-[30px] rounded-full object-cover"/>
+                        <span className="inline-block text-[15px] font-normal text-[#303B54]">John Doe</span>
 
-                    <span className="text-base text-[#C4C4C4] pl-10">
-                        <HiOutlineDotsHorizontal/>
-                    </span>
+                        <span className="text-base text-[#C4C4C4] pl-10">
+                            <HiOutlineDotsHorizontal/>
+                        </span>
                     </div>
                 
                 </nav>
             </div>
-           
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-16 pt-8">
                 {
                  (active.length === 0 && item.length < 4) &&   cardItems.map(card=> <Card txt={card.name} bg={card.col} key={card.name}/>)
                 }
@@ -108,6 +111,7 @@ const Dashboard = () => {
                 <Outlet/>
                 {/* <Table/> */}
             </div>
+           
         </div>
     </Layout>
   )

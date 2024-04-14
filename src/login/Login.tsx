@@ -1,4 +1,4 @@
-import React from 'react'
+
 import StarWar from '../assets/starw.png'
 import Layout from '../components/Layout'
 import useLogin from '../hooks/useLogin'
