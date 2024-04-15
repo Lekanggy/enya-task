@@ -1,10 +1,19 @@
 import { truncateData } from "../../utilis/truncateData"
 
-const TableData = ({data}:{data:string}) => {
+type TableDataProp = {
+  data?: string
+  children?: React.ReactNode
+}
+const TableData = ({data, children}:TableDataProp) => {
 
   return (
-    <td className="px-5 text-base font-medium text-[#303B54] rounded py-4 whitespace-nowrap font-inter">
-    {truncateData(data)}
+    <td className="px-[8px] text-[14px] font-medium text-[#303B54] rounded py-4 whitespace-nowrap font-inter">
+      {
+      data && truncateData(data)
+      }
+      {
+        children && children
+      }
     </td>
   )
 }

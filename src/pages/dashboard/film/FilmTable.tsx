@@ -1,9 +1,9 @@
 
-import useFetech from "../hooks/useFetech"
-import useHandleRoutes from "../hooks/useHandleRoutes"
-import TableData from "./table/TableData"
-import TableHeader from "./table/TableHeader"
-import TableLayout from "./table/TableLayout"
+import useFetech from "../../../hooks/useFetech"
+import useHandleRoutes from "../../../hooks/useHandleRoutes"
+import TableData from "../../../components/table/TableData"
+import TableHeader from "../../../components/table/TableHeader"
+import TableLayout from "../../../components/table/TableLayout"
 
 
 const columns = [
@@ -27,11 +27,11 @@ const Table = () => {
                 !response?.results && <div className="pl-12">Loading</div>
             }
             {
-                response?.results?.map((item:{[k:string]:any})=>(
+                response?.results?.slice(0, 8)?.map((item:{[k:string]:any})=>(
                     <tr onClick={()=>handleRoute(item?.url)} key={item.title}>
-                        <td className="px-10">
+                        <TableData>
                             <input type='checkbox' className="w-[14px] h-[14px]"/>
-                        </td>
+                        </TableData>
                         <TableData data={item.title}/>
                         <TableData data={item.release_date}/>
                         <TableData data={item.director}/>

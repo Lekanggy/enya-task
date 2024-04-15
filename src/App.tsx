@@ -1,16 +1,16 @@
 //import { useState } from 'react'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
-import Dashboard from "./dashboard/Dashboard"
-import Login from "./login/Login"
-import Table from './components/FilmTable';
-import StarshipTable from './components/StarshipTable';
-import PeopleTable from './components/PeopleTable';
-import SpeciesTable from './components/SpeciesTable';
-import StartShipItem from './components/StarshipItem';
-import PeopleItem from './components/PeopleItem';
-import SpeciesItem from './components/SpeciesItem';
-import FilmItem from './components/FilmItem';
+import Dashboard from "./pages/dashboard/Dashboard"
+import Login from "./pages/login/Login"
+import Table from './pages/dashboard/film/FilmTable';
+import StarshipTable from './pages/dashboard/starship/StarshipTable';
+import PeopleTable from './pages/dashboard/people/PeopleTable';
+import SpeciesTable from './pages/dashboard/species/SpeciesTable';
+import StartShipItem from './pages/dashboard/starship/StarshipItem';
+import PeopleItem from './pages/dashboard/people/PeopleItem';
+import SpeciesItem from './pages/dashboard/species/SpeciesItem';
+import FilmItem from './pages/dashboard/film/FilmItem';
 
 function App() {
  // const [count, setCount] = useState(0)

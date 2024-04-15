@@ -1,8 +1,8 @@
-import useFetech from "../hooks/useFetech"
-import useHandleRoutes from "../hooks/useHandleRoutes"
-import TableData from "./table/TableData"
-import TableHeader from "./table/TableHeader"
-import TableLayout from "./table/TableLayout"
+import useFetech from "../../../hooks/useFetech"
+import useHandleRoutes from "../../../hooks/useHandleRoutes"
+import TableData from "../../../components/table/TableData"
+import TableHeader from "../../../components/table/TableHeader"
+import TableLayout from "../../../components/table/TableLayout"
 
 
 const columns = [
@@ -28,9 +28,9 @@ const StarshipTable = () => {
             {
                 response?.results?.map((item:{[k:string]:any}, index:number)=>(
                     <tr onClick={()=>handleRoute(index + 1)} key={index+1}>
-                        <td className="px-10">
+                        <TableData>
                             <input type='checkbox' className="w-[14px] h-[14px]"/>
-                        </td>
+                        </TableData>
                         <TableData data={item.name}/>
                         <TableData data={item.model}/>
                         <TableData data={item.starship_class}/>

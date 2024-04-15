@@ -4,12 +4,12 @@ type LayOutProp = {
     children: React.ReactNode
 }
 
-const Layout = ({children}:LayOutProp) => {
+const PageLayout = ({children}:LayOutProp) => {
   return (
-    <div className="flex min-h-full">
+    <div className="flex min-h-full pr-10">
         {children}
     </div>
   )
 }
 
-export default Layout
+export default PageLayout
