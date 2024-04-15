@@ -1,4 +1,3 @@
-import React from 'react'
 import NavigateBack from '../../../components/NavigateBack'
 import NavHeader from '../../../components/NavHeader'
 
