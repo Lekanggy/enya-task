@@ -13,7 +13,7 @@ const TableHeader = ({columns}:HeaderProp) => {
                 <th
                 key={column.key}
                 scope="col"
-                className="px-3 py-3 text-left text-base font-medium text-[#A4A7B7] tracking-wider"
+                className="px-5 py-3 text-left text-base font-medium text-[#A4A7B7] tracking-wider"
                 >
                 {column.label}
                 </th>

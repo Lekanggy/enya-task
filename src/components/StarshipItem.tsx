@@ -17,7 +17,7 @@ const StartShipItem = () => {
             <img src={Human} alt="human logo" className="w-full h-full object-cover"/>
         </div>
         <div className="flex flex-col space-y-5 pt-4">
-            <span className="inline-block text-[48px] leading-[24px] text-black font-bold">{response?.name ?? "n/a"}</span>
+            <span className="inline-block text-[48px] leading-[48px] text-black font-bold">{response?.name ?? "n/a"}</span>
             <div className="flex flex-col space-y-3">
                 <div className="flex items-center space-x-2">
                     <span className="inline-block text-base font-medium text-[#303B54]">Model</span> :

@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import Dashboard from "./dashboard/Dashboard"
 import Login from "./login/Login"
-import Table from './components/Table';
+import Table from './components/FilmTable';
 import StarshipTable from './components/StarshipTable';
 import PeopleTable from './components/PeopleTable';
 import SpeciesTable from './components/SpeciesTable';

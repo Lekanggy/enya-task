@@ -1,8 +1,9 @@
 
 import useFetech from "../hooks/useFetech"
 import useHandleRoutes from "../hooks/useHandleRoutes"
-import TableData from "./TableData"
-import TableHeader from "./TableHeader"
+import TableData from "./table/TableData"
+import TableHeader from "./table/TableHeader"
+import TableLayout from "./table/TableLayout"
 
 
 const columns = [
@@ -19,16 +20,16 @@ const Table = () => {
     const {handleRoute} = useHandleRoutes()
    
   return (
-    <table className="min-w-full divide-y divide-gray-200">
+   <TableLayout>
         <TableHeader columns={columns}/>
         <tbody className="bg-white divide-y divide-gray-200">
             {
-                !response?.results && <div>Loading</div>
+                !response?.results && <div className="pl-12">Loading</div>
             }
             {
                 response?.results?.map((item:{[k:string]:any})=>(
                     <tr onClick={()=>handleRoute(item?.url)} key={item.title}>
-                        <td>
+                        <td className="px-10">
                             <input type='checkbox' className="w-[14px] h-[14px]"/>
                         </td>
                         <TableData data={item.title}/>
@@ -42,7 +43,8 @@ const Table = () => {
             }
             
         </tbody>
-    </table>
+   </TableLayout>
+   
   )
 }
 

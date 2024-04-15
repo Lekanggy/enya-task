@@ -27,7 +27,7 @@ const SpeciesItem = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                     <span className="inline-block text-base font-medium text-[#303B54]">Eye Color</span> :
-                    <span className="inline-block text-base font-medium text-[#434854]">{response?.eye_color}</span>
+                    <span className="inline-block text-base font-medium text-[#434854]">{response?.eye_colors}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                     <span className="inline-block text-base font-medium text-[#303B54]">Average Lifespan</span> :

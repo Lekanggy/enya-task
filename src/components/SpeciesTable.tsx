@@ -1,8 +1,9 @@
 import useFetech from "../hooks/useFetech"
 import useHandleRoutes from "../hooks/useHandleRoutes"
 import { convertTimeToDate } from "../utilis/dateFormat"
-import TableData from "./TableData"
-import TableHeader from "./TableHeader"
+import TableData from "./table/TableData"
+import TableHeader from "./table/TableHeader"
+import TableLayout from "./table/TableLayout"
 
 
 const columns = [
@@ -18,17 +19,17 @@ const SpeciesTable = () => {
     const {response} = useFetech("https://swapi.dev/api/species")
     const {handleRoute} = useHandleRoutes()
   return (
-    <table className="divide-y divide-gray-200">
+    <TableLayout>
         <TableHeader columns={columns}/>
         <tbody className="bg-white divide-y divide-gray-200">
             {
-                !response?.results && <div>Loading</div>
+                !response?.results && <div className="pl-12">Loading</div>
             }
         
             {
                 response?.results?.map((item:{[k:string]:any}, index:number)=>(
                     <tr onClick={()=>handleRoute(index + 1)} key={index}>
-                        <td>
+                        <td className="px-10">
                             <input type='checkbox' className="w-[14px] h-[14px]"/>
                         </td>
                         <TableData data={item.name}/>
@@ -42,7 +43,7 @@ const SpeciesTable = () => {
             }
             
         </tbody>
-    </table>
+    </TableLayout>
   )
 }
 
