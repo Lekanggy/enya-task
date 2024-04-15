@@ -1,8 +1,8 @@
 
-import StarShip from '../../../assets/planets.png'
-import DescriptionImage from '../../../components/DescriptionImage'
-import DescriptionItem from '../../../components/DescriptionItem'
-import useFetech from '../../../hooks/useFetech'
+import StarShip from '../../../../assets/planets.png'
+import DescriptionImage from '../../../../components/DescriptionImage'
+import useFetech from '../../../../hooks/useFetech'
+import DescriptionItem from '../../../../components/DescriptionItem'
 import { useLocation } from 'react-router-dom'
 
 const StartShipItem = () => {

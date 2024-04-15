@@ -1,8 +1,8 @@
 
-import Species from '../../../assets/monkey.png'
-import DescriptionImage from '../../../components/DescriptionImage'
-import DescriptionItem from '../../../components/DescriptionItem'
-import useFetech from '../../../hooks/useFetech'
+import Species from '../../../../assets/monkey.png'
+import DescriptionImage from '../../../../components/DescriptionImage'
+import DescriptionItem from '../../../../components/DescriptionItem'
+import useFetech from '../../../../hooks/useFetech'
 import { useLocation } from 'react-router-dom'
 
 const SpeciesItem = () => {

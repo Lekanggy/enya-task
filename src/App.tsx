@@ -3,14 +3,15 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import Dashboard from "./pages/dashboard/Dashboard"
 import Login from "./pages/login/Login"
-import Table from './pages/dashboard/film/FilmTable';
-import StarshipTable from './pages/dashboard/starship/StarshipTable';
-import PeopleTable from './pages/dashboard/people/PeopleTable';
-import SpeciesTable from './pages/dashboard/species/SpeciesTable';
-import StartShipItem from './pages/dashboard/starship/StarshipItem';
-import PeopleItem from './pages/dashboard/people/PeopleItem';
-import SpeciesItem from './pages/dashboard/species/SpeciesItem';
-import FilmItem from './pages/dashboard/film/FilmItem';
+import FilmTable from './pages/dashboard/starwar/film/FilmTable';
+import FilmItem from './pages/dashboard/starwar/film/FilmItem';
+import StarshipTable from './pages/dashboard/starwar/starship/StarshipTable';
+import StartShipItem from './pages/dashboard/starwar/starship/StarshipItem';
+import PeopleTable from './pages/dashboard/starwar/people/PeopleTable';
+import PeopleItem from './pages/dashboard/starwar/people/PeopleItem';
+import SpeciesTable from './pages/dashboard/starwar/species/SpeciesTable';
+import SpeciesItem from './pages/dashboard/starwar/species/SpeciesItem';
+
 
 function App() {
  // const [count, setCount] = useState(0)
@@ -21,7 +22,7 @@ function App() {
       <Routes>
         <Route path='/' index element={<Login/>}/>
         <Route path='dashboard'  element={<Dashboard/>}>
-          <Route path='Films' element={<Table/>}/>
+          <Route path='Films' element={<FilmTable/>}/>
           <Route path='Films/:id' element={<FilmItem/>}/>
           <Route path='Starships' element={<StarshipTable/>}/>
           <Route path='Starships/:id' element={<StartShipItem/>}/>

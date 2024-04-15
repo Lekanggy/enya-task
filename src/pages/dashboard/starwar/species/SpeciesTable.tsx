@@ -1,22 +1,22 @@
-import useFetech from "../../../hooks/useFetech"
-import useHandleRoutes from "../../../hooks/useHandleRoutes"
-import { convertTimeToDate } from "../../../utilis/dateFormat"
-import TableData from "../../../components/table/TableData"
-import TableHeader from "../../../components/table/TableHeader"
-import TableLayout from "../../../components/table/TableLayout"
+import useFetech from "../../../../hooks/useFetech"
+import useHandleRoutes from "../../../../hooks/useHandleRoutes"
+import { convertTimeToDate } from "../../../../utilis/dateFormat"
+import TableData from "../../../../components/table/TableData"
+import TableHeader from "../../../../components/table/TableHeader"
+import TableLayout from "../../../../components/table/TableLayout"
 
 
 const columns = [
     {label: "Name", key: "12"},
-    {label: "Birth Year", key: "13"},
-    {label: "Gender", key: "152"},
+    {label: "Classification", key: "13"},
+    {label: "Eye color", key: "152"},
     {label: "Hair color", key: "1662"},
     {label: "Height", key: "1265"},
     {label: "Created", key: "1672"},
 ]
 
-const PeopleTable = () => {
-    const {response} = useFetech("https://swapi.dev/api/people")
+const SpeciesTable = () => {
+    const {response} = useFetech("https://swapi.dev/api/species")
     const {handleRoute} = useHandleRoutes()
   return (
     <TableLayout>
@@ -25,7 +25,7 @@ const PeopleTable = () => {
             {
                 !response?.results && <div className="pl-12">Loading</div>
             }
-            
+        
             {
                 response?.results?.map((item:{[k:string]:any}, index:number)=>(
                     <tr onClick={()=>handleRoute(index + 1)} key={index}>
@@ -33,10 +33,10 @@ const PeopleTable = () => {
                             <input type='checkbox' className="w-[14px] h-[14px]"/>
                         </TableData>
                         <TableData data={item.name}/>
-                        <TableData data={item.birth_year}/>
-                        <TableData data={item.gender}/>
-                        <TableData data={item.hair_color}/>
-                        <TableData data={item.height}/>
+                        <TableData data={item.classification}/>
+                        <TableData data={item.eye_colors}/>
+                        <TableData data={item.hair_colors}/>
+                        <TableData data={item.average_height}/>
                         <TableData data={convertTimeToDate(item.created)}/>
                     </tr>
                 ))
@@ -44,8 +44,7 @@ const PeopleTable = () => {
             
         </tbody>
     </TableLayout>
-   
   )
 }
 
-export default  PeopleTable
+export default SpeciesTable

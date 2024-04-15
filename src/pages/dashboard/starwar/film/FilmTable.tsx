@@ -1,9 +1,9 @@
 
-import useFetech from "../../../hooks/useFetech"
-import useHandleRoutes from "../../../hooks/useHandleRoutes"
-import TableData from "../../../components/table/TableData"
-import TableHeader from "../../../components/table/TableHeader"
-import TableLayout from "../../../components/table/TableLayout"
+import TableData from "../../../../components/table/TableData"
+import TableHeader from "../../../../components/table/TableHeader"
+import TableLayout from "../../../../components/table/TableLayout"
+import useFetech from "../../../../hooks/useFetech"
+import useHandleRoutes from "../../../../hooks/useHandleRoutes"
 
 
 const columns = [
@@ -15,7 +15,7 @@ const columns = [
     {label: "Character", key: "1672"},
 ]
 
-const Table = () => {
+const FilmTable = () => {
     const {response} = useFetech("https://swapi.dev/api/films")
     const {handleRoute} = useHandleRoutes()
    
@@ -48,4 +48,4 @@ const Table = () => {
   )
 }
 
-export default Table
+export default FilmTable

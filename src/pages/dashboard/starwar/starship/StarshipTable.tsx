@@ -1,8 +1,8 @@
-import useFetech from "../../../hooks/useFetech"
-import useHandleRoutes from "../../../hooks/useHandleRoutes"
-import TableData from "../../../components/table/TableData"
-import TableHeader from "../../../components/table/TableHeader"
-import TableLayout from "../../../components/table/TableLayout"
+import TableData from "../../../../components/table/TableData"
+import TableHeader from "../../../../components/table/TableHeader"
+import TableLayout from "../../../../components/table/TableLayout"
+import useFetech from "../../../../hooks/useFetech"
+import useHandleRoutes from "../../../../hooks/useHandleRoutes"
 
 
 const columns = [
