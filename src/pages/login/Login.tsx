@@ -1,6 +1,6 @@
 
 import StarWar from '../../assets/starw.png'
-import PageLayout from '../Layout'
+import PageLayout from '../PageLayout'
 
 import LoginForm from './login-form/LoginForm'
 
@@ -13,6 +13,7 @@ const Login = () => {
                 <img src={StarWar} alt='start wars' className="w-full h-full object-cover"/>
             </div>
         </div>
+        
         <div className="flex-[4] flex justify-center items-center">
             <div className="flex justify-center items-center rounded-lg shadow-md w-[467px] py-4">
                <LoginForm/>

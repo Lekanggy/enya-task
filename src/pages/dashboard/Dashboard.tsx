@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import PageLayout from '../Layout';
+import PageLayout from '../PageLayout';
 import DashboardSideBar from './DasboardSideBar';
 import MainSide from "./main-side/MainSide";
 
